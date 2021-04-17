@@ -48,15 +48,15 @@ repositories {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url("$rootDir/../node_modules/react-native/android")
     }
-    flatDir {dirs 'libs'}
     google()
     jcenter()
+    flatDir { dirs "libs" }
 }
 
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    compile(name: 'eSewaSdk', ext: 'aar')
+    implementation(name: 'eSewaSdk', ext: 'aar')
     implementation "com.android.support:cardview-v7:27.1.1"
     implementation "com.android.support:design:27.1.1"
 }

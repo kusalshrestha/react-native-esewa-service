@@ -41,21 +41,13 @@ public class EsewaServiceModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void init(String MERCHANT_ID, String MERCHANT_SECRET_KEY, String ENVIRONMENT) {
-    Log.d("Merchant Id", MERCHANT_ID);
-    Log.d("Merchant key", MERCHANT_SECRET_KEY);
-    String prod = "production";
-    if(ENVIRONMENT.equals(prod)){
-      eSewaConfiguration = new ESewaConfiguration()
-        .clientId(MERCHANT_ID)
-        .secretKey(MERCHANT_SECRET_KEY)
-        .environment(ESewaConfiguration.ENVIRONMENT_PRODUCTION);
-    } else {
-      eSewaConfiguration = new ESewaConfiguration()
-        .clientId(MERCHANT_ID)
-        .secretKey(MERCHANT_SECRET_KEY)
-        .environment(ESewaConfiguration.ENVIRONMENT_TEST);
-    }
+  public void init(String CLIENT_ID, String SECRET_KEY, String ENVIRONMENT) {
+    Log.d("Merchant Id", CLIENT_ID);
+    Log.d("Merchant key", SECRET_KEY);
+    eSewaConfiguration = new ESewaConfiguration()
+      .clientId(CLIENT_ID)
+      .secretKey(SECRET_KEY)
+      .environment(ENVIRONMENT);
   }
 
 

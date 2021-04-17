@@ -1,9 +1,15 @@
 import { NativeModules } from 'react-native';
 
+enum Environment {
+  PRODUCTION = "live",
+  TEST = "test",
+  LOCAL = "local"
+}
+
 type EsewaServiceType = {
-  multiply(a: number, b: number): Promise<number>;
+  init(clientId: string, secret: string, environment: Environment): void;
 };
 
-const { EsewaService } = NativeModules;
+const { Esewa } = NativeModules;
 
-export default EsewaService as EsewaServiceType;
+export default Esewa as EsewaServiceType;
