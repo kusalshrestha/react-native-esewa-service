@@ -1,21 +1,23 @@
 # react-native-esewa-service
 
-Esewa service for react native projects
+Esewa service for react native projects.
 
 ## Installation
 
 ```sh
-npm install react-native-esewa-service
+yarn add react-native-esewa-service
 ```
 
 ## Usage
 
 ```js
-import EsewaService from "react-native-esewa-service";
+import Esewa from "react-native-esewa-service";
 
 // ...
 
-const result = await EsewaService.multiply(3, 7);
+Esewa.init(CLIENT_ID, SECRET, ENVIRONMENT)
+Esewa.makePayment(PRICE, PRODUCT_NAME, PRODUCT_ID, CALLBACK_URL)
+
 ```
 
 ## Contributing

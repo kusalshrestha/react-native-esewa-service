@@ -50,13 +50,12 @@ repositories {
     }
     google()
     jcenter()
-    flatDir { dirs "libs" }
 }
 
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation(name: 'eSewaSdk', ext: 'aar')
+    implementation files('libs/eSewaSdk.aar')
     implementation "com.android.support:cardview-v7:27.1.1"
     implementation "com.android.support:design:27.1.1"
 }

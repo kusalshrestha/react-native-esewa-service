@@ -52,12 +52,10 @@ public class EsewaServiceModule extends ReactContextBaseJavaModule {
 
 
   @ReactMethod
-  public void makePayment(String amount, String productName, String productID, String callbackURL, Promise promise) {
-    mEsewaPromise = promise;
+  public void makePayment(String amount, String productName, String productID, String callbackURL) {
     Activity currentActivity = getCurrentActivity();
 
     if (currentActivity == null) {
-      promise.reject("Activity doesn't exist");
       return;
     }
 
