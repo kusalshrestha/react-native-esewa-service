@@ -1,6 +1,7 @@
 # react-native-esewa-service
 
-Esewa service for react native projects.
+This is an unofficial esewa service integration for react native projects. However it has less issues comparitive to existing esewa react native libraries.
+TODO: ios integration
 
 ## Installation
 
