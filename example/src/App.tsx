@@ -1,18 +1,24 @@
 import * as React from 'react';
+import Esewa from 'react-native-esewa-service';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-import { StyleSheet, View, Text } from 'react-native';
-import EsewaService from 'react-native-esewa-service';
+const MERCHANT_ID = "BxwRAw0WGEUMFUkrJ0w2OEg8KyUgOTU=";
+const MERCHANT_SECRET_KEY = "BhwIWQQdHQAXEV0HGBUHBwAKEANLBxMc";
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
   React.useEffect(() => {
-    EsewaService.multiply(3, 7).then(setResult);
+    return Esewa.init(MERCHANT_ID, MERCHANT_SECRET_KEY, "test");
   }, []);
+
+  const makePayment = () => {
+    Esewa.makePayment("500", "book", "1", "")
+  }
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <TouchableOpacity style={styles.button} onPress={makePayment}>
+        <Text>Esewa Pay</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -23,9 +29,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  button: {
+    width: 120,
+    height: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'orange',
   },
 });
